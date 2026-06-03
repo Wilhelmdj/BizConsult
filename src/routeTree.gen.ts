@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as KnowledgeShareRouteImport } from './routes/knowledge-share'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -21,11 +20,6 @@ import { Route as LegalPrivacyRouteImport } from './routes/legal/privacy'
 import { Route as LegalPopiaRouteImport } from './routes/legal/popia'
 import { Route as LegalDisclaimerRouteImport } from './routes/legal/disclaimer'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const KnowledgeShareRoute = KnowledgeShareRouteImport.update({
   id: '/knowledge-share',
   path: '/knowledge-share',
@@ -82,7 +76,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/knowledge-share': typeof KnowledgeShareRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/legal/disclaimer': typeof LegalDisclaimerRoute
   '/legal/popia': typeof LegalPopiaRoute
   '/legal/privacy': typeof LegalPrivacyRoute
@@ -95,7 +88,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/knowledge-share': typeof KnowledgeShareRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/legal/disclaimer': typeof LegalDisclaimerRoute
   '/legal/popia': typeof LegalPopiaRoute
   '/legal/privacy': typeof LegalPrivacyRoute
@@ -109,7 +101,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/knowledge-share': typeof KnowledgeShareRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/legal/disclaimer': typeof LegalDisclaimerRoute
   '/legal/popia': typeof LegalPopiaRoute
   '/legal/privacy': typeof LegalPrivacyRoute
@@ -124,7 +115,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/knowledge-share'
-    | '/sitemap.xml'
     | '/legal/disclaimer'
     | '/legal/popia'
     | '/legal/privacy'
@@ -137,7 +127,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/knowledge-share'
-    | '/sitemap.xml'
     | '/legal/disclaimer'
     | '/legal/popia'
     | '/legal/privacy'
@@ -150,7 +139,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/knowledge-share'
-    | '/sitemap.xml'
     | '/legal/disclaimer'
     | '/legal/popia'
     | '/legal/privacy'
@@ -164,7 +152,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   KnowledgeShareRoute: typeof KnowledgeShareRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   LegalDisclaimerRoute: typeof LegalDisclaimerRoute
   LegalPopiaRoute: typeof LegalPopiaRoute
   LegalPrivacyRoute: typeof LegalPrivacyRoute
@@ -175,13 +162,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/knowledge-share': {
       id: '/knowledge-share'
       path: '/knowledge-share'
@@ -260,7 +240,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   KnowledgeShareRoute: KnowledgeShareRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   LegalDisclaimerRoute: LegalDisclaimerRoute,
   LegalPopiaRoute: LegalPopiaRoute,
   LegalPrivacyRoute: LegalPrivacyRoute,
@@ -271,13 +250,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
