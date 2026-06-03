@@ -39,7 +39,7 @@ export function SiteHeader() {
           </a>
         </div>
       </div>
-      <div className="container-page flex h-18 items-center justify-between py-4">
+      <div className="container-page flex h-20 items-center justify-between py-4">
         <Logo />
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
           {nav.map((item) => (
