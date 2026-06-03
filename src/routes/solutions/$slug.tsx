@@ -2,11 +2,11 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { Button } from "@/components/ui/button";
-import { getSolution, solutions } from "@/data/solutions";
+import { getSolution, solutions, type Solution } from "@/data/solutions";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/solutions/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { solution: Solution } => {
     const solution = getSolution(params.slug);
     if (!solution) throw notFound();
     return { solution };
