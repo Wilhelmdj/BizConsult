@@ -8,6 +8,7 @@
     "build": "vite build && node scripts/cleanup-dist.mjs",
     "build:dev": "vite build --mode development && node scripts/cleanup-dist.mjs",
     "preview": "vite preview",
+    "deploy": "wrangler pages deploy dist/client --project-name BizConsult",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
