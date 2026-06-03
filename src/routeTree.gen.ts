@@ -9,13 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as KnowledgeShareRouteImport } from './routes/knowledge-share'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SolutionsIndexRouteImport } from './routes/solutions/index'
 import { Route as SolutionsSlugRouteImport } from './routes/solutions/$slug'
+import { Route as LegalTermsRouteImport } from './routes/legal/terms'
+import { Route as LegalPrivacyRouteImport } from './routes/legal/privacy'
+import { Route as LegalPopiaRouteImport } from './routes/legal/popia'
+import { Route as LegalDisclaimerRouteImport } from './routes/legal/disclaimer'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KnowledgeShareRoute = KnowledgeShareRouteImport.update({
   id: '/knowledge-share',
   path: '/knowledge-share',
@@ -46,12 +56,37 @@ const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
   path: '/solutions/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalTermsRoute = LegalTermsRouteImport.update({
+  id: '/legal/terms',
+  path: '/legal/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalPrivacyRoute = LegalPrivacyRouteImport.update({
+  id: '/legal/privacy',
+  path: '/legal/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalPopiaRoute = LegalPopiaRouteImport.update({
+  id: '/legal/popia',
+  path: '/legal/popia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalDisclaimerRoute = LegalDisclaimerRouteImport.update({
+  id: '/legal/disclaimer',
+  path: '/legal/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/knowledge-share': typeof KnowledgeShareRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/legal/disclaimer': typeof LegalDisclaimerRoute
+  '/legal/popia': typeof LegalPopiaRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/solutions/': typeof SolutionsIndexRoute
 }
@@ -60,6 +95,11 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/knowledge-share': typeof KnowledgeShareRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/legal/disclaimer': typeof LegalDisclaimerRoute
+  '/legal/popia': typeof LegalPopiaRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/solutions': typeof SolutionsIndexRoute
 }
@@ -69,6 +109,11 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/knowledge-share': typeof KnowledgeShareRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/legal/disclaimer': typeof LegalDisclaimerRoute
+  '/legal/popia': typeof LegalPopiaRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/solutions/$slug': typeof SolutionsSlugRoute
   '/solutions/': typeof SolutionsIndexRoute
 }
@@ -79,6 +124,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/knowledge-share'
+    | '/sitemap.xml'
+    | '/legal/disclaimer'
+    | '/legal/popia'
+    | '/legal/privacy'
+    | '/legal/terms'
     | '/solutions/$slug'
     | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +137,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/knowledge-share'
+    | '/sitemap.xml'
+    | '/legal/disclaimer'
+    | '/legal/popia'
+    | '/legal/privacy'
+    | '/legal/terms'
     | '/solutions/$slug'
     | '/solutions'
   id:
@@ -95,6 +150,11 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/knowledge-share'
+    | '/sitemap.xml'
+    | '/legal/disclaimer'
+    | '/legal/popia'
+    | '/legal/privacy'
+    | '/legal/terms'
     | '/solutions/$slug'
     | '/solutions/'
   fileRoutesById: FileRoutesById
@@ -104,12 +164,24 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   KnowledgeShareRoute: typeof KnowledgeShareRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  LegalDisclaimerRoute: typeof LegalDisclaimerRoute
+  LegalPopiaRoute: typeof LegalPopiaRoute
+  LegalPrivacyRoute: typeof LegalPrivacyRoute
+  LegalTermsRoute: typeof LegalTermsRoute
   SolutionsSlugRoute: typeof SolutionsSlugRoute
   SolutionsIndexRoute: typeof SolutionsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/knowledge-share': {
       id: '/knowledge-share'
       path: '/knowledge-share'
@@ -152,6 +224,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal/terms': {
+      id: '/legal/terms'
+      path: '/legal/terms'
+      fullPath: '/legal/terms'
+      preLoaderRoute: typeof LegalTermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/privacy': {
+      id: '/legal/privacy'
+      path: '/legal/privacy'
+      fullPath: '/legal/privacy'
+      preLoaderRoute: typeof LegalPrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/popia': {
+      id: '/legal/popia'
+      path: '/legal/popia'
+      fullPath: '/legal/popia'
+      preLoaderRoute: typeof LegalPopiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/disclaimer': {
+      id: '/legal/disclaimer'
+      path: '/legal/disclaimer'
+      fullPath: '/legal/disclaimer'
+      preLoaderRoute: typeof LegalDisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -160,9 +260,24 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   KnowledgeShareRoute: KnowledgeShareRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  LegalDisclaimerRoute: LegalDisclaimerRoute,
+  LegalPopiaRoute: LegalPopiaRoute,
+  LegalPrivacyRoute: LegalPrivacyRoute,
+  LegalTermsRoute: LegalTermsRoute,
   SolutionsSlugRoute: SolutionsSlugRoute,
   SolutionsIndexRoute: SolutionsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
