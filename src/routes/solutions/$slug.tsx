@@ -29,7 +29,7 @@ export const Route = createFileRoute("/solutions/$slug")({
 });
 
 function SolutionDetail() {
-  const { solution } = Route.useLoaderData();
+  const { solution } = Route.useLoaderData() as { solution: Solution };
   const Icon = solution.icon;
   const related = solutions.filter((s) => s.slug !== solution.slug).slice(0, 3);
 
