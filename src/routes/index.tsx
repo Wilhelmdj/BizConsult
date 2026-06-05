@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { CtaSection } from "@/components/site/CtaSection";
 import { solutions } from "@/data/solutions";
-import heroImg from "@/assets/hero-boardroom.jpg";
+import heroImg from "@/assets/heroimage3.png";
 import {
   ArrowRight,
   ShieldCheck,
@@ -43,7 +43,6 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <ValueProps />
       <WhyUs />
       <ServicesOverview />
       <Credibility />
@@ -55,8 +54,8 @@ function HomePage() {
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-primary text-primary-foreground">
-      <div className="container-page relative grid items-center gap-12 py-20 md:py-28 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-        <div className="relative z-10 animate-fade-up">
+      <div className="container-page relative py-20 md:py-28 lg:min-h-[48rem]">
+        <div className="relative z-10 max-w-2xl animate-fade-up lg:max-w-[44rem]">
           <div className="eyebrow-light mb-6">
             <span className="rule-accent" />
             Industrial Relations · Since 2008
@@ -100,74 +99,50 @@ function Hero() {
             ))}
           </dl>
         </div>
-        <div className="relative animate-fade-up">
-          <div className="absolute -inset-4 hidden rounded-sm border border-white/10 lg:block" />
-          <div className="relative overflow-hidden rounded-sm shadow-elevated">
-            <img
-              src={heroImg}
-              alt="Senior consultants advising employers in a corporate boardroom"
-              width={1600}
-              height={1200}
-              className="aspect-[4/3] h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-transparent" />
+        <div className="relative mt-14 hidden animate-fade-up lg:mt-0 lg:block lg:absolute lg:right-[-1rem] lg:top-1/2 lg:w-[28vw] lg:max-w-[1100px] lg:-translate-y-1/2">
+          <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
+            {tilePath.map((tile, index) => (
+              <span
+                key={`${tile.top}-${tile.left}`}
+                className="absolute rounded-sm bg-white/95 shadow-[0_1px_0_rgba(255,255,255,0.35),0_2px_6px_rgba(6,20,52,0.12)] tile-glow"
+                style={{
+                  top: tile.top,
+                  left: tile.left,
+                  width: tile.size,
+                  height: tile.size,
+                  opacity: tile.opacity,
+                  transform: `rotate(${tile.rotate}deg)`,
+                  animation: `tile-wave 6.5s ease-in-out infinite`,
+                  animationDelay: `${index * 0.45}s`,
+                }}
+              />
+            ))}
           </div>
+          <img
+            src={heroImg}
+            alt="Senior consultants advising employers in a corporate boardroom"
+            width={1600}
+            height={1200}
+            className="relative z-10 h-auto w-full max-w-none object-contain"
+          />
         </div>
       </div>
     </section>
   );
 }
 
-function ValueProps() {
-  const cards = [
-    {
-      icon: Briefcase,
-      title: "Optimize Your HR Today",
-      lede: "Focus on growing your business while we manage your people.",
-      body: "Outsource your HR and IR functions to experienced professionals so leadership can focus on strategy and growth.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Get Expert IR Support",
-      lede: "Minimize risk. Maintain stability. Ensure compliance.",
-      body: "We guide you through complex labour matters to reduce disputes and maintain workplace harmony.",
-    },
-    {
-      icon: Calculator,
-      title: "Streamline Your Payroll",
-      lede: "Save time. Reduce risk. Ensure accuracy.",
-      body: "We manage your payroll process so you never worry about errors, penalties, or delays.",
-    },
-  ];
-  return (
-    <section className="relative mt-8 md:mt-12">
-      <div className="container-page">
-        <div className="grid gap-5 md:grid-cols-3">
-          {cards.map(({ icon: Icon, title, lede, body }) => (
-            <article
-              key={title}
-              className="group relative flex flex-col rounded-sm border border-border bg-card p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
-            >
-              <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-primary text-primary-foreground">
-                <Icon className="h-5 w-5" />
-              </span>
-              <h3 className="mt-6 font-serif text-xl text-foreground">{title}</h3>
-              <p className="mt-2 text-sm font-medium text-primary">{lede}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
-              <span className="mt-6 h-px w-full bg-border" />
-              <Link
-                to="/solutions"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary hover:text-destructive"
-              >
-                Learn more <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+const tilePath = [
+  { top: "14%", left: "20%", size: "28px", opacity: 0.85, rotate: -8 },
+  { top: "22%", left: "30%", size: "26px", opacity: 0.92, rotate: 6 },
+  { top: "30%", left: "40%", size: "28px", opacity: 0.82, rotate: -4 },
+  { top: "39%", left: "50%", size: "26px", opacity: 0.9, rotate: 7 },
+  { top: "49%", left: "58%", size: "27px", opacity: 0.78, rotate: -6 },
+  { top: "59%", left: "49%", size: "26px", opacity: 0.88, rotate: 5 },
+  { top: "69%", left: "39%", size: "28px", opacity: 0.8, rotate: -7 },
+  { top: "79%", left: "29%", size: "26px", opacity: 0.86, rotate: 4 },
+] as const;
+
+// ValueProps section removed per request - homepage now flows from Hero -> WhyUs
 
 function WhyUs() {
   const items = [

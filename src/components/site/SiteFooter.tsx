@@ -71,7 +71,7 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-4 text-sm text-white/80">
               <li className="flex items-start gap-3">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-white/60" />
-                <span>+27 (0) 00 000 0000</span>
+                <a href="tel:+27562505000" className="hover:text-white">056 250 5000</a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-white/60" />
@@ -81,7 +81,14 @@ export function SiteFooter() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/60" />
-                <span>Office Park, Johannesburg, South Africa</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=64%20Orange%20St%2C%20Central%2C%20Kroonstad%2C%209499"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white"
+                >
+                  64 Orange St, Central, Kroonstad, 9499
+                </a>
               </li>
             </ul>
           </div>

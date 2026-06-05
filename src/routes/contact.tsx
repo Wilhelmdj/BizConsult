@@ -96,9 +96,14 @@ function ContactPage() {
             <div className="rounded-sm border border-border bg-surface p-8">
               <h3 className="font-serif text-xl text-foreground">Business information</h3>
               <ul className="mt-6 space-y-5 text-sm">
-                <ContactRow icon={Phone} label="Phone" value="+27 (0) 00 000 0000" />
+                <ContactRow icon={Phone} label="Phone" value="056 250 5000" href="tel:+27562505000" />
                 <ContactRow icon={Mail} label="Email" value="info@bizconsult.co.za" href="mailto:info@bizconsult.co.za" />
-                <ContactRow icon={MapPin} label="Office" value="Office Park, Johannesburg, South Africa" />
+                <ContactRow
+                  icon={MapPin}
+                  label="Office"
+                  value="64 Orange St, Central, Kroonstad, 9499"
+                  href="https://www.google.com/maps/search/?api=1&query=64%20Orange%20St%2C%20Central%2C%20Kroonstad%2C%209499"
+                />
                 <ContactRow icon={Clock} label="Hours" value="Mon – Fri · 08:00 – 17:00 (SAST)" />
               </ul>
               <div className="mt-8 border-t border-border pt-6">
@@ -114,14 +119,17 @@ function ContactPage() {
               <div className="aspect-[4/3] w-full" aria-label="Office location map">
                 <iframe
                   title="BizConsult office location"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=27.95%2C-26.20%2C28.10%2C-26.10&layer=mapnik"
-                  className="h-full w-full border-0 grayscale"
+                  src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14134.297041440674!2d27.226206755292374!3d-27.668640819272927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s64%20Orange%20St%2C%20Central%2C%20Kroonstad%2C%209499!5e0!3m2!1sen!2sza!4v1780669863921!5m2!1sen!2sza"
+                  className="h-full w-full border-0"
+                  style={{ border: 0 }}
+                  allowFullScreen
                   loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
               <div className="p-6">
                 <p className="text-xs uppercase tracking-[0.18em] text-white/60">Our location</p>
-                <p className="mt-2 font-serif text-lg">Johannesburg · Gauteng</p>
+                <p className="mt-2 font-serif text-lg">64 Orange St, Central, Kroonstad, 9499</p>
               </div>
             </div>
           </aside>

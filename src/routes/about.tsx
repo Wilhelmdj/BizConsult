@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaSection } from "@/components/site/CtaSection";
 import { Button } from "@/components/ui/button";
-import aboutImg from "@/assets/about-consultant.jpg";
+import aboutImg from "@/assets/aboutimage.jpg";
 import { Compass, Target, Eye, ShieldCheck, Users2, Scale, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
