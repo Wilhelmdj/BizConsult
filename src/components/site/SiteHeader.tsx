@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
-import { Button } from "@/components/ui/button";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -31,14 +30,6 @@ export function SiteHeader() {
           : "border-transparent bg-background"
       }`}
     >
-      <div className="hidden border-b border-border/60 bg-surface md:block">
-        <div className="container-page flex h-9 items-center justify-between text-xs text-muted-foreground">
-          <span className="font-medium tracking-wide">Trusted Industrial Relations partner to employers since 2008</span>
-          <a href="tel:+27000000000" className="inline-flex items-center gap-1.5 hover:text-foreground">
-            <Phone className="h-3.5 w-3.5" /> +27 (0) 00 000 0000
-          </a>
-        </div>
-      </div>
       <div className="container-page flex h-20 items-center justify-between py-4">
         <Logo />
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
@@ -54,11 +45,6 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <div className="hidden lg:block">
-          <Button asChild variant="destructive" size="lg" className="rounded-sm font-semibold tracking-wide">
-            <Link to="/contact">Request a FREE Consultation</Link>
-          </Button>
-        </div>
         <button
           type="button"
           onClick={() => setOpen((s) => !s)}
@@ -84,11 +70,6 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Button asChild variant="destructive" size="lg" className="mt-3 rounded-sm">
-              <Link to="/contact" onClick={() => setOpen(false)}>
-                Request a FREE Consultation
-              </Link>
-            </Button>
           </div>
         </div>
       )}

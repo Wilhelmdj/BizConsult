@@ -112,17 +112,6 @@ function Hero() {
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-transparent" />
           </div>
-          <div className="absolute -bottom-6 -left-6 hidden max-w-[16rem] rounded-sm bg-white p-5 text-foreground shadow-elevated lg:block">
-            <div className="flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-sm bg-destructive/10 text-destructive">
-                <ShieldCheck className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="font-serif text-sm font-semibold leading-tight">Employer-Focused</p>
-                <p className="text-xs text-muted-foreground">Strategic IR representation</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -151,7 +140,7 @@ function ValueProps() {
     },
   ];
   return (
-    <section className="relative -mt-14 md:-mt-20">
+    <section className="relative mt-8 md:mt-12">
       <div className="container-page">
         <div className="grid gap-5 md:grid-cols-3">
           {cards.map(({ icon: Icon, title, lede, body }) => (
