@@ -72,7 +72,7 @@ function Hero() {
             South African employers.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Button asChild variant="destructive" size="lg" className="h-12 rounded-sm px-6 text-sm font-semibold">
+            <Button asChild variant="destructive" size="lg" className="h-12 rounded-sm px-6 text-sm font-semibold animate-gentle-pulse">
               <Link to="/contact">
                 Request a FREE Consultation <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -154,7 +154,7 @@ function WhyUs() {
     { icon: BadgeCheck, title: "AHI Employers' Organisation", body: "Accredited member of the AHI Employers' Organisation." },
   ];
   return (
-    <section className="bg-surface py-24 md:py-32">
+    <section className="bg-surface py-24 md:py-32 animate-fade-up">
       <div className="container-page">
         <div className="grid gap-14 lg:grid-cols-[1fr_1.4fr] lg:gap-20">
           <div>
@@ -174,7 +174,7 @@ function WhyUs() {
           </div>
           <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2">
             {items.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="flex gap-4 bg-card p-7">
+              <div key={title} className="group flex gap-4 rounded-sm bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </span>
@@ -193,7 +193,7 @@ function WhyUs() {
 
 function ServicesOverview() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-24 md:py-32 animate-fade-up">
       <div className="container-page">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
@@ -213,7 +213,7 @@ function ServicesOverview() {
               key={slug}
               to="/solutions/$slug"
               params={{ slug }}
-              className="group flex flex-col bg-card p-7 transition-colors hover:bg-surface"
+              className="group flex flex-col rounded-sm bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:bg-surface"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-primary text-primary-foreground transition-colors group-hover:bg-destructive">
                 <Icon className="h-5 w-5" />
@@ -239,7 +239,7 @@ function Credibility() {
     "Practical, commercial labour relations solutions",
   ];
   return (
-    <section className="bg-surface py-24 md:py-32">
+    <section className="bg-surface py-24 md:py-32 animate-fade-up">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>

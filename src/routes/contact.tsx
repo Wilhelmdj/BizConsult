@@ -57,7 +57,7 @@ function ContactPage() {
         description="Confidential. No obligation. Tell us about your matter and we will respond within one business day."
       />
 
-      <section className="py-24 md:py-32">
+      <section className="py-24 md:py-32 animate-fade-up">
         <div className="container-page grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
           <div>
             <div className="eyebrow mb-5"><span className="rule-accent" /> Request a Consultation</div>

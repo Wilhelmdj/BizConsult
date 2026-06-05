@@ -215,6 +215,21 @@
   animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+@utility animate-gentle-pulse {
+  animation: gentle-pulse 6s ease-in-out infinite;
+}
+
 @utility animate-tile-wave {
   animation: tile-wave 6.5s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-1px);
+    filter: brightness(1.04);
+  }
 }
