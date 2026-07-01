@@ -166,8 +166,8 @@ export const solutions: Solution[] = [
     ],
   },
   {
-    slug: "capacity-management",
-    title: "Capacity Management",
+    slug: "incapacity-management",
+    title: "Incapacity Management",
     short: "Fair management of poor performance and incapacity due to ill health.",
     icon: GraduationCap,
     overview:
