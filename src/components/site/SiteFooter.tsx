@@ -21,19 +21,19 @@ const legalLinks = [
 
 const socialLinks: SocialItem[] = [
   {
-    href: "#",
+    href: "https://www.facebook.com/people/BizConsult/100069665048222/?rdid=IzYEwL8oSr6thZ1N&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CG4RUmNcp%2F",
     ariaLabel: "Facebook",
     tooltip: "Facebook",
     icon: Facebook,
   },
   {
-    href: "#",
+    href: "https://www.instagram.com/BizConsult_solutions",
     ariaLabel: "Instagram",
     tooltip: "Instagram",
     icon: Instagram,
   },
   {
-    href: "#",
+    href: "https://www.linkedin.com/company/bizconsultsa/?viewAsMember=true",
     ariaLabel: "LinkedIn",
     tooltip: "LinkedIn",
     icon: Linkedin,
