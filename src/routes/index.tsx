@@ -1,10 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-<<<<<<< HEAD
 import { GridBeam } from "@/components/ui/background-grid-beam";
-=======
-import { StarsBackground } from "@/components/ui/stars-background";
->>>>>>> 887d185b4f560b79bb8ce5f05331344dc305cd01
 import { CtaSection } from "@/components/site/CtaSection";
 import { solutions } from "@/data/solutions";
 import heroImg from "@/assets/heroimage3.png";
@@ -58,20 +54,9 @@ function HomePage() {
 
 function Hero() {
   return (
-<<<<<<< HEAD
     <section className="relative overflow-hidden">
       <GridBeam className="min-h-[48rem] text-primary-foreground">
         <div className="container-page relative py-20 md:py-28 lg:min-h-[48rem]">
-=======
-    <section className="relative overflow-hidden bg-black text-primary-foreground">
-      <StarsBackground
-        starDensity={0.00018}
-        minTwinkleSpeed={0.6}
-        maxTwinkleSpeed={1.4}
-        className="z-0"
-      />
-      <div className="container-page relative z-10 py-20 md:py-28 lg:min-h-[48rem]">
->>>>>>> 887d185b4f560b79bb8ce5f05331344dc305cd01
         <div className="relative z-10 max-w-2xl animate-fade-up lg:max-w-[44rem]">
           <div className="eyebrow-light mb-6">
             <span className="rule-accent" />
