@@ -18,7 +18,7 @@ export const Route = createFileRoute("/legal/privacy")({
       <h2 className="font-serif text-2xl text-foreground">How we use information</h2>
       <p>Information is used solely to respond to enquiries, deliver consulting services, and meet our legal and regulatory obligations.</p>
       <h2 className="font-serif text-2xl text-foreground">Your rights</h2>
-      <p>You may request access to, correction of, or deletion of your personal information at any time by contacting info@bizconsult.co.za.</p>
+      <p>You may request access to, correction of, or deletion of your personal information at any time by contacting admin@bizconsult.co.za.</p>
     </LegalLayout>
   ),
 });

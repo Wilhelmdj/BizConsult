@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { StarsBackground } from "@/components/ui/stars-background";
 
 interface PageHeroProps {
   eyebrow?: string;
@@ -9,16 +10,14 @@ interface PageHeroProps {
 
 export function PageHero({ eyebrow, title, description, children }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-primary text-primary-foreground">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-          backgroundSize: "32px 32px",
-        }}
+    <section className="relative overflow-hidden bg-black text-primary-foreground">
+      <StarsBackground
+        starDensity={0.00018}
+        minTwinkleSpeed={0.6}
+        maxTwinkleSpeed={1.4}
+        className="z-0"
       />
-      <div className="container-page relative py-24 md:py-32">
+      <div className="container-page relative z-10 py-24 md:py-32">
         <div className="max-w-3xl">
           {eyebrow && (
             <div className="eyebrow-light mb-5">

@@ -1,21 +1,18 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
+import { StarsBackground } from "@/components/ui/stars-background";
 import { ArrowRight } from "lucide-react";
-import ctaImg from "@/assets/cta-building.jpg";
 
 export function CtaSection() {
   return (
-    <section className="relative overflow-hidden bg-primary text-primary-foreground">
-      <div className="absolute inset-0">
-        <img
-          src={ctaImg}
-          alt=""
-          loading="lazy"
-          className="h-full w-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
-      </div>
-      <div className="container-page relative py-20 md:py-28">
+    <section className="relative overflow-hidden bg-black text-primary-foreground">
+      <StarsBackground
+        starDensity={0.00016}
+        minTwinkleSpeed={0.7}
+        maxTwinkleSpeed={1.6}
+        className="z-0"
+      />
+      <div className="container-page relative z-10 py-20 md:py-28">
         <div className="grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
           <div>
             <div className="eyebrow-light mb-5">

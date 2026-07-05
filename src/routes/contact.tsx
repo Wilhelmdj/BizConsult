@@ -97,7 +97,7 @@ function ContactPage() {
               <h3 className="font-serif text-xl text-foreground">Business information</h3>
               <ul className="mt-6 space-y-5 text-sm">
                 <ContactRow icon={Phone} label="Phone" value="056 250 5000" href="tel:+27562505000" />
-                <ContactRow icon={Mail} label="Email" value="info@bizconsult.co.za" href="mailto:info@bizconsult.co.za" />
+                <ContactRow icon={Mail} label="Email" value="admin@bizconsult.co.za" href="mailto:admin@bizconsult.co.za" />
                 <ContactRow
                   icon={MapPin}
                   label="Office"
