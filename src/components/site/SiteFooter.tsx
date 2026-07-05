@@ -1,9 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { GridBeam } from "@/components/ui/background-grid-beam";
 import { Logo } from "./Logo";
-import { SocialTooltip, type SocialItem } from "@/components/ui/social-media";
-import { StarsBackground } from "@/components/ui/stars-background";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 const quickLinks = [
   { to: "/", label: "Home" },
@@ -20,33 +18,6 @@ const legalLinks = [
   { to: "/legal/terms", label: "Terms of Use" },
 ] as const;
 
-const socialLinks: SocialItem[] = [
-  {
-    href: "https://www.facebook.com/people/BizConsult/100069665048222/?rdid=IzYEwL8oSr6thZ1N&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CG4RUmNcp%2F",
-    ariaLabel: "Facebook",
-    tooltip: "Facebook",
-    icon: Facebook,
-  },
-  {
-    href: "https://www.instagram.com/BizConsult_solutions",
-    ariaLabel: "Instagram",
-    tooltip: "Instagram",
-    icon: Instagram,
-  },
-  {
-    href: "https://www.linkedin.com/company/bizconsultsa/?viewAsMember=true",
-    ariaLabel: "LinkedIn",
-    tooltip: "LinkedIn",
-    icon: Linkedin,
-  },
-  {
-    href: "https://wa.me/27562505000",
-    ariaLabel: "WhatsApp",
-    tooltip: "WhatsApp",
-    icon: MessageCircle,
-  },
-];
-
 export function SiteFooter() {
   return (
     <footer className="relative overflow-hidden text-primary-foreground">
@@ -55,7 +26,6 @@ export function SiteFooter() {
           <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
             <div>
               <Logo light />
-              <SocialTooltip items={socialLinks} className="mt-5 justify-start" />
               <p className="mt-8 max-w-sm text-sm leading-relaxed text-white/70">
                 BizConsult provides Industrial Relations Management services that
                 protect employers, ensure compliance, and build stable, productive
