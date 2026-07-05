@@ -23,7 +23,7 @@ function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="555555555 BizConsult"
+        eyebrow="2323223 BizConsult"
         title="Trusted Industrial Relations counsel for South African employers."
         description="Since 2008 we have helped business owners, directors, and HR leaders navigate the most complex labour matters with judgement, rigour, and discretion."
       />
