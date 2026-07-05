@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
+import { GridBeam } from "@/components/ui/background-grid-beam";
 import { CtaSection } from "@/components/site/CtaSection";
 import { solutions } from "@/data/solutions";
 import heroImg from "@/assets/heroimage3.png";
@@ -53,8 +54,9 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-primary text-primary-foreground">
-      <div className="container-page relative py-20 md:py-28 lg:min-h-[48rem]">
+    <section className="relative overflow-hidden">
+      <GridBeam className="min-h-[48rem] text-primary-foreground">
+        <div className="container-page relative py-20 md:py-28 lg:min-h-[48rem]">
         <div className="relative z-10 max-w-2xl animate-fade-up lg:max-w-[44rem]">
           <div className="eyebrow-light mb-6">
             <span className="rule-accent" />
@@ -126,7 +128,8 @@ function Hero() {
             className="relative z-10 h-auto w-full max-w-none object-contain"
           />
         </div>
-      </div>
+        </div>
+      </GridBeam>
     </section>
   );
 }

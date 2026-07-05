@@ -233,3 +233,23 @@
     filter: brightness(1.04);
   }
 }
+
+@keyframes grid-beam-drift {
+  0%,
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(var(--beam-rotate)) scale(var(--beam-scale));
+    filter: brightness(0.95);
+  }
+
+  50% {
+    transform: translate3d(calc(-50% + var(--beam-shift-x)), calc(-50% + var(--beam-shift-y)), 0) rotate(calc(var(--beam-rotate) + 2deg)) scale(calc(var(--beam-scale) + 0.06));
+    filter: brightness(1.2);
+  }
+}
+
+.beam-mark {
+  animation-name: grid-beam-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform, filter, opacity;
+}

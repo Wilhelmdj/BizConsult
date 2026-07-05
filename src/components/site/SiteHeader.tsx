@@ -22,6 +22,20 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
   return (
     <header
       className={`sticky top-0 z-50 w-full border-b transition-colors duration-300 ${
@@ -56,20 +70,42 @@ export function SiteHeader() {
         </button>
       </div>
       {open && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <div className="container-page flex flex-col gap-1 py-4">
-            {nav.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
+        <div
+          className="fixed inset-0 z-[60] bg-background/35 backdrop-blur-sm lg:hidden"
+          onClick={() => setOpen(false)}
+          role="presentation"
+        >
+          <div
+            className="mx-4 mt-20 rounded-2xl border border-border/80 bg-background/95 p-2 shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between px-3 py-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                Navigate
+              </p>
+              <button
+                type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-sm px-3 py-2.5 text-base font-medium text-foreground/80 hover:bg-surface hover:text-primary"
-                activeProps={{ className: "text-primary bg-surface" }}
-                activeOptions={{ exact: item.to === "/" }}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-foreground/80 transition-colors hover:bg-surface hover:text-primary"
+                aria-label="Close menu"
               >
-                {item.label}
-              </Link>
-            ))}
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="flex flex-col gap-1 py-2">
+              {nav.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl px-3 py-2.5 text-base font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-primary"
+                  activeProps={{ className: "text-primary bg-surface" }}
+                  activeOptions={{ exact: item.to === "/" }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       )}
