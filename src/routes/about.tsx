@@ -37,6 +37,7 @@ function AboutPage() {
             <div className="absolute -bottom-6 -right-6 hidden max-w-[16rem] rounded-sm bg-primary p-6 text-primary-foreground shadow-elevated lg:block">
               <p className="font-serif text-3xl">2008</p>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/70">Year established</p>
+              <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-white/60">Verified update</p>
             </div>
           </div>
           <div>
