@@ -26,15 +26,15 @@ function SolutionsIndex() {
         title="End-to-end Industrial Relations services for employers."
         description="Twelve integrated practice areas — delivered by senior consultants — to manage every facet of your Industrial Relations risk."
       />
-      <section className="py-24 md:py-32">
+      <section className="solutions-grid-section py-24 md:py-32">
         <div className="container-page">
           <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-            {solutions.map(({ slug, title, short, icon: Icon }) => (
+            {solutions.map(({ slug, title, short, icon: Icon }, index) => (
               <Link
                 key={slug}
                 to="/solutions/$slug"
                 params={{ slug }}
-                className="group flex flex-col bg-card p-8 transition-colors hover:bg-surface"
+                className={`solution-card solution-card--${index % 3} group flex flex-col bg-card p-8 transition-colors hover:bg-surface`}
               >
                 <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-primary text-primary-foreground transition-colors group-hover:bg-destructive">
                   <Icon className="h-5 w-5" />

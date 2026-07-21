@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { StarsBackground } from "@/components/ui/stars-background";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { CtaSection } from "@/components/site/CtaSection";
 import { solutions } from "@/data/solutions";
 import heroImg from "@/assets/heroimage3.png";
@@ -54,24 +54,14 @@ function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-black text-primary-foreground">
-      <StarsBackground
-        starDensity={0.00018}
-        minTwinkleSpeed={0.6}
-        maxTwinkleSpeed={1.4}
-        className="z-0"
-      />
-      <div className="container-page relative z-10 py-20 md:py-28 lg:min-h-[48rem]">
-        <div className="relative z-10 max-w-2xl animate-fade-up lg:max-w-[44rem]">
-          <div className="eyebrow-light mb-6">
-            <span className="rule-accent" />
-            Industrial Relations · Since 2008
-          </div>
+    <section className="relative overflow-hidden bg-primary text-primary-foreground">
+      <div className="container-page relative z-10 flex min-h-screen items-center py-20 md:py-28">
+        <div className="relative z-10 max-w-2xl translate-y-8 animate-fade-up md:translate-x-8 lg:max-w-[44rem]">
           <h1 className="text-balance font-serif text-4xl leading-[1.02] tracking-tight text-white md:text-6xl lg:text-[4.25rem]">
             Industrial Relations Management for Employers
           </h1>
           <p className="mt-6 font-serif text-xl italic text-white/85 md:text-2xl">
-            Let Us Be Your Trusted Partner
+            Your next step starts here.
           </p>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
             Protect your business, maintain compliance, and build a productive
@@ -79,34 +69,27 @@ function Hero() {
             South African employers.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <Button asChild variant="destructive" size="lg" className="h-12 rounded-sm px-6 text-sm font-semibold animate-gentle-pulse">
-              <Link to="/contact">
-                Request a FREE Consultation <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="h-12 rounded-sm border-white/25 bg-transparent px-6 text-sm font-semibold text-white hover:bg-white hover:text-primary"
-            >
-              <Link to="/solutions">Explore Our Solutions</Link>
-            </Button>
+            <InteractiveHoverButton asChild text="Request a FREE Consultation" className="min-w-60 animate-gentle-pulse">
+              <Link to="/contact" />
+            </InteractiveHoverButton>
+            <InteractiveHoverButton asChild text="Explore Our Solutions" className="min-w-52">
+              <Link to="/solutions" />
+            </InteractiveHoverButton>
           </div>
           <dl className="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-white/15 pt-8">
             {[
               { k: "15+", v: "Years advising employers" },
-              { k: "100%", v: "Employer-focused" },
+              { k: "2008", v: "Established", bold: true },
               { k: "AHI", v: "Accredited member" },
             ].map((s) => (
               <div key={s.k}>
-                <dt className="font-serif text-3xl text-white">{s.k}</dt>
+                <dt className={`font-serif text-3xl text-white ${s.bold ? "font-bold" : ""}`}>{s.k}</dt>
                 <dd className="mt-1 text-xs leading-snug text-white/60">{s.v}</dd>
               </div>
             ))}
           </dl>
         </div>
-        <div className="relative mt-14 hidden animate-fade-up lg:mt-0 lg:block lg:absolute lg:right-[-1rem] lg:top-1/2 lg:w-[28vw] lg:max-w-[1100px] lg:-translate-y-1/2">
+        <div className="relative mt-14 hidden animate-fade-up lg:mt-0 lg:block lg:absolute lg:right-[-3rem] lg:top-[56%] lg:w-[28vw] lg:max-w-[1100px] lg:-translate-y-1/2">
           <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
             {tilePath.map((tile, index) => (
               <span
@@ -200,7 +183,7 @@ function WhyUs() {
 
 function ServicesOverview() {
   return (
-    <section className="py-24 md:py-32 animate-fade-up">
+    <section className="solutions-grid-section py-24 md:py-32 animate-fade-up">
       <div className="container-page">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
@@ -215,12 +198,12 @@ function ServicesOverview() {
           </p>
         </div>
         <div className="mt-14 grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
-          {solutions.map(({ slug, title, short, icon: Icon }) => (
+          {solutions.map(({ slug, title, short, icon: Icon }, index) => (
             <Link
               key={slug}
               to="/solutions/$slug"
               params={{ slug }}
-              className="group flex flex-col rounded-sm bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:bg-surface"
+              className={`solution-card solution-card--${index % 3} group flex flex-col rounded-sm bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover hover:bg-surface`}
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-primary text-primary-foreground transition-colors group-hover:bg-destructive">
                 <Icon className="h-5 w-5" />

@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { SocialTooltip, type SocialItem } from "@/components/ui/social-media";
-import { StarsBackground } from "@/components/ui/stars-background";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 const quickLinks = [
@@ -48,13 +47,7 @@ const socialLinks: SocialItem[] = [
 
 export function SiteFooter() {
   return (
-    <footer className="relative overflow-hidden bg-black text-primary-foreground">
-      <StarsBackground
-        starDensity={0.00016}
-        minTwinkleSpeed={0.7}
-        maxTwinkleSpeed={1.6}
-        className="z-0"
-      />
+    <footer className="relative overflow-hidden bg-primary text-primary-foreground">
       <div className="container-page relative py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
@@ -68,9 +61,11 @@ export function SiteFooter() {
               protect employers, ensure compliance, and build stable, productive
               workplaces across South Africa.
             </p>
-            <div className="mt-6 inline-flex items-center gap-2 rounded-sm border border-white/15 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">
-              Member · AHI Employers' Organisation
-            </div>
+            <img
+              src="/AHI.png"
+              alt="AHI Employers' Organisation member"
+              className="mt-6 h-16 w-auto max-w-full object-contain"
+            />
           </div>
 
           <div>

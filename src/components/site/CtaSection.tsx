@@ -1,17 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { StarsBackground } from "@/components/ui/stars-background";
 import { ArrowRight } from "lucide-react";
 
 export function CtaSection() {
   return (
-    <section className="relative overflow-hidden bg-black text-primary-foreground">
-      <StarsBackground
-        starDensity={0.00016}
-        minTwinkleSpeed={0.7}
-        maxTwinkleSpeed={1.6}
-        className="z-0"
-      />
+    <section className="relative overflow-hidden bg-primary text-primary-foreground">
       <div className="container-page relative z-10 py-20 md:py-28">
         <div className="grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
           <div>

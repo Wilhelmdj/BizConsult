@@ -104,7 +104,7 @@ function ContactPage() {
                   value="64 Orange St, Central, Kroonstad, 9499"
                   href="https://www.google.com/maps/search/?api=1&query=64%20Orange%20St%2C%20Central%2C%20Kroonstad%2C%209499"
                 />
-                <ContactRow icon={Clock} label="Hours" value="Mon – Fri · 08:00 – 17:00 (SAST)" />
+                <ContactRow icon={Clock} label="Hours" value="Mon – Fri · 07:30 – 17:00 (SAST)" />
               </ul>
               <div className="mt-8 border-t border-border pt-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Why employers choose us</p>

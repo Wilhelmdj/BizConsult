@@ -34,10 +34,7 @@ function AboutPage() {
             <div className="overflow-hidden rounded-sm shadow-elevated">
               <img src={aboutImg} alt="Senior BizConsult consultant" loading="lazy" className="aspect-[3/4] w-full object-cover" />
             </div>
-            <div className="absolute -bottom-6 -right-6 hidden max-w-[16rem] rounded-sm bg-primary p-6 text-primary-foreground shadow-elevated lg:block">
-              <p className="font-serif text-3xl">2008</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-white/70">Year established</p>
-            </div>
+            
           </div>
           <div>
             <div className="eyebrow mb-5"><span className="rule-accent" /> Company Overview</div>
